@@ -1,0 +1,80 @@
+<%= form_with(model: proponent) do |form| %>
+  <% if proponent.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(proponent.errors.count, "error") %> prohibited this proponent from being saved:</h2>
+
+      <ul>
+        <% proponent.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :cpf, style: "display: block" %>
+    <%= form.text_field :cpf %>
+  </div>
+
+  <div>
+    <%= form.label :birth_date, style: "display: block" %>
+    <%= form.date_field :birth_date %>
+  </div>
+
+  <div>
+    <%= form.label :salary, style: "display: block" %>
+    <%= form.text_field :salary %>
+  </div>
+
+  <div>
+    <%= form.label :personal_contact, style: "display: block" %>
+    <%= form.text_field :personal_contact %>
+  </div>
+
+  <div>
+    <%= form.label :reference_contact, style: "display: block" %>
+    <%= form.text_field :reference_contact %>
+  </div>
+
+  <h3>Address</h3>
+  <%= form.fields_for :address do |address_form| %>
+    <div>
+      <%= address_form.label :street %>
+      <%= address_form.text_field :street %>
+    </div>
+
+    <div>
+      <%= address_form.label :number %>
+      <%= address_form.text_field :number %>
+    </div>
+
+    <div>
+      <%= address_form.label :neighborhood %>
+      <%= address_form.text_field :neighborhood %>
+    </div>
+
+    <div>
+      <%= address_form.label :city %>
+      <%= address_form.text_field :city %>
+    </div>
+
+    <div>
+      <%= address_form.label :state %>
+      <%= address_form.text_field :state %>
+    </div>
+
+    <div>
+      <%= address_form.label :zip_code %>
+      <%= address_form.text_field :zip_code %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,38 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Proponents</h1>
+
+<%= link_to "New proponent", new_proponent_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>CPF</th>
+      <th>Birth Date</th>
+      <th>Salary</th>
+      <th>Personal Contact</th>
+      <th>Reference Contact</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @proponents.each do |proponent| %>
+      <tr>
+        <td><%= proponent.name %></td>
+        <td><%= proponent.cpf %></td>
+        <td><%= proponent.birth_date %></td>
+        <td><%= number_to_currency(proponent.salary) %></td>
+        <td><%= proponent.personal_contact %></td>
+        <td><%= proponent.reference_contact %></td>
+        <td>
+          <%= link_to "Show", proponent %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="pagination">
+  <%= paginate @proponents %> <!-- Paginação -->
+</div>

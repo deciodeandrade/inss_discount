@@ -1,0 +1,66 @@
+<div id="<%= dom_id @proponent %>">
+  <p>
+    <strong>Name:</strong>
+    <%= @proponent.name %>
+  </p>
+
+  <p>
+    <strong>CPF:</strong>
+    <%= @proponent.cpf %>
+  </p>
+
+  <p>
+    <strong>Birth date:</strong>
+    <%= @proponent.birth_date %>
+  </p>
+
+  <p>
+    <strong>Salary:</strong>
+    <%= @proponent.salary %>
+  </p>
+
+  <p>
+    <strong>Personal contact:</strong>
+    <%= @proponent.personal_contact %>
+  </p>
+
+  <p>
+    <strong>Reference contact:</strong>
+    <%= @proponent.reference_contact %>
+  </p>
+
+  <% if @proponent.address.present? %>
+    <h3>Address</h3>
+    <p>
+      <strong>Street:</strong>
+      <%= @proponent.address.street %>
+    </p>
+
+    <p>
+      <strong>Number:</strong>
+      <%= @proponent.address.number %>
+    </p>
+
+    <p>
+      <strong>Neighborhood:</strong>
+      <%= @proponent.address.neighborhood %>
+    </p>
+
+    <p>
+      <strong>City:</strong>
+      <%= @proponent.address.city %>
+    </p>
+
+    <p>
+      <strong>State:</strong>
+      <%= @proponent.address.state %>
+    </p>
+
+    <p>
+      <strong>Zip Code:</strong>
+      <%= @proponent.address.zip_code %>
+    </p>
+  <% else %>
+    <p>No address available</p>
+  <% end %>
+</div>
