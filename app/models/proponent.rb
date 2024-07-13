@@ -7,6 +7,7 @@ class Proponent < ApplicationRecord
   validates :cpf, presence: true, uniqueness: true
   validates :birth_date, presence: true
   validates :salary, presence: true
+  validates :inss_discount, presence: true
   validates :personal_contact, presence: true
   validates :reference_contact, presence: true
 end

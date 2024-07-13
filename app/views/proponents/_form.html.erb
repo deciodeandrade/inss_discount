@@ -32,6 +32,11 @@
   </div>
 
   <div>
+    <%= form.label :inss_discount, style: "display: block" %>
+    <%= form.text_field :inss_discount, id: 'inss_discount', readonly: true %>
+  </div>
+
+  <div>
     <%= form.label :personal_contact, style: "display: block" %>
     <%= form.text_field :personal_contact %>
   </div>
@@ -78,3 +83,27 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<script>
+window.onload = () => {
+  const salaryField = document.getElementById('proponent_salary');
+  const inssDiscountField = document.getElementById('inss_discount');
+
+  salaryField.addEventListener('change', () => {
+    const salary = salaryField.value;
+
+    if (salary) {
+      fetch(`/proponents/calculate_inss?salary=${salary}`)
+        .then(response => response.json())
+        .then(data => {
+          inssDiscountField.value = data.inss_discount.toFixed(2);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    } else {
+      inssDiscountField.value = '0.00';
+    }
+  });
+};
+</script>
