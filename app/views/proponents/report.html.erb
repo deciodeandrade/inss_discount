@@ -1,0 +1,64 @@
+<h1>Relatório de Funcionários</h1>
+
+<h2>Funcionários por Faixa Salarial</h2>
+<% @salary_ranges.each do |range, proponents| %>
+  <h3><%= range %> (Total: <%= proponents.count %>)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>Salário</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% proponents.each do |proponent| %>
+        <tr>
+          <td><%= proponent.name %></td>
+          <td><%= proponent.cpf %></td>
+          <td><%= number_to_currency(proponent.salary) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<canvas id="myChart" width="960" height="200"></canvas>
+
+<script>
+window.onload = () => {
+  fetch('/proponents/salary_report')
+    .then(response => response.json())
+    .then(data => {
+      const salaryLabels = Object.keys(data);
+      const salaryData = Object.values(data);
+
+      const ctx = document.getElementById('myChart');
+      const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: salaryLabels,
+          datasets: [{
+            label: 'Funcionários por Faixa Salarial',
+            data: salaryData,
+            backgroundColor: ['rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
+            borderColor: ['rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          }
+        }
+      });
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+};
+</script>

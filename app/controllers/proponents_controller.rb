@@ -68,6 +68,16 @@ class ProponentsController < ApplicationController
     render json: { inss_discount: inss_discount }
   end
 
+  def report
+    @salary_ranges = Proponent.salary_ranges
+  end
+
+  def salary_report
+    data = Proponent.salary_ranges.map { |range, proponents| [range, proponents.count] }.to_h
+  
+    render json: data
+  end
+
   private
     def set_proponent
       @proponent = Proponent.find(params[:id])
