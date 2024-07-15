@@ -33,6 +33,10 @@ gem "redis", "~> 4.0"
 # Gemfile
 gem 'kaminari'
 
+gem "sassc-rails"
+gem "bootstrap"
+gem "mini_racer"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
