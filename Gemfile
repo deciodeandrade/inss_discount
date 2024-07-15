@@ -33,6 +33,9 @@ gem "redis", "~> 4.0"
 # Gemfile
 gem 'kaminari'
 
+gem 'sidekiq'
+gem 'sinatra', require: nil
+
 gem "sassc-rails"
 gem "bootstrap"
 gem "mini_racer"

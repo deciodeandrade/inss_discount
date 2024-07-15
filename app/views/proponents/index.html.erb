@@ -9,10 +9,8 @@
     <tr>
       <th>Name</th>
       <th>CPF</th>
-      <th>Birth Date</th>
       <th>Salary</th>
-      <th>Personal Contact</th>
-      <th>Reference Contact</th>
+      <th></th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -21,10 +19,13 @@
       <tr>
         <td><%= proponent.name %></td>
         <td><%= proponent.cpf %></td>
-        <td><%= proponent.birth_date %></td>
         <td><%= number_to_currency(proponent.salary) %></td>
-        <td><%= proponent.personal_contact %></td>
-        <td><%= proponent.reference_contact %></td>
+        <td>
+          <%= form_with url: update_salary_proponent_path(proponent), method: :post do %>
+            <%= text_field_tag :salary, nil, placeholder: "Novo Salário" %>
+            <%= submit_tag 'Atualizar Salário' %>
+          <% end %>
+        </td>
         <td>
           <%= link_to "Show", proponent %>
         </td>

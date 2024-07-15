@@ -52,6 +52,15 @@ class ProponentsController < ApplicationController
     end
   end
 
+  def update_salary
+    proponent = Proponent.find(params[:id])
+    new_salary = params[:salary]
+
+    UpdateSalaryJob.perform_later(proponent.id, new_salary)
+
+    redirect_to proponents_path, notice: "Salary update is being processed."
+  end
+
   # DELETE /proponents/1 or /proponents/1.json
   def destroy
     @proponent.destroy
