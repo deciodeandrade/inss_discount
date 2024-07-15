@@ -40,6 +40,8 @@ gem "sassc-rails"
 gem "bootstrap"
 gem "mini_racer"
 
+gem 'devise', '~> 4.9.2'
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
