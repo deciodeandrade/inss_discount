@@ -1,0 +1,8 @@
+require: rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 3.2 # ou a versão que você está usando
+  Exclude:
+    - 'db/**/*'
+    - 'bin/*'
+    - 'config/**/*'
