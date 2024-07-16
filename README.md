@@ -18,19 +18,32 @@ Siga os passos abaixo para configurar e iniciar a aplicação:
    cd inss_discount
 
 2. **Crie e inicialize os containers com Docker Compose:**
+
+   ```bash
+   docker-compose build
+   docker-compose up
+
+3. **Execute as migrações do banco de dados:**
    Em um novo terminal, execute:
 
    ```bash
    docker-compose run web rake db:create db:migrate
 
-
-3. **Execute as migrações do banco de dados:**
-
-   ```bash
-   git clone https://github.com/seu-usuario/inss_discount.git
-   cd inss_discount
-
 4. **Acesse a aplicação:**
 
    ```bash
-   A aplicação estará disponível em http://localhost:3000.
+   A aplicação estará disponível em http://localhost:3000
+
+## Testes
+
+1. **Para rodar os testes automatizados, utilize o seguinte comando:**
+   ```bash
+   docker-compose run web rspec
+
+## Funcionalidades
+- Autenticação de Usuário: Utilizando Devise para gerenciar login e logout.
+- Cadastro de Proponentes: Criação, leitura, atualização e exclusão de proponentes.
+- Cálculo do INSS: Cálculo automático do desconto do INSS baseado no salário do proponente.
+- Relatórios e Gráficos: Relatórios agrupados por faixas salariais e gráficos utilizando Chart.js.
+
+
