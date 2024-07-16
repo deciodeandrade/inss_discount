@@ -14,7 +14,7 @@ Siga os passos abaixo para configurar e iniciar a aplicação:
 1. **Clone o repositório:**
 
    ```bash
-   git clone https://github.com/seu-usuario/inss_discount.git
+   git clone https://github.com/deciodeandrade/inss_discount.git
    cd inss_discount
 
 2. **Crie e inicialize os containers com Docker Compose:**
