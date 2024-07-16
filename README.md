@@ -24,12 +24,18 @@ Siga os passos abaixo para configurar e iniciar a aplicação:
    docker-compose up
 
 3. **Execute as migrações do banco de dados:**
-   Em um novo terminal, execute:
 
+   Em um novo terminal, execute:
    ```bash
    docker-compose run web rake db:create db:migrate
 
-4. **Acesse a aplicação:**
+5. **Execute os seeds:**
+
+   Execute:
+   ```bash
+   docker-compose run web rake db:seed
+
+6. **Acesse a aplicação:**
 
    ```bash
    A aplicação estará disponível em http://localhost:3000
